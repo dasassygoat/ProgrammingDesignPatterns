@@ -3,7 +3,7 @@ using static System.Console;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace ConsoleApp1
+namespace OpenClosedPrinciple
 {
     public enum Color
     {
