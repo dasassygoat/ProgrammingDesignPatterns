@@ -1,4 +1,4 @@
-# ProgrammingDesignPatterns
+# Programming Design Patterns
 
 Code from Udemy course on Design Patterns.
 
