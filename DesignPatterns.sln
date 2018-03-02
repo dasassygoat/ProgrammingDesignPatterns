@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInversionPrincipl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "BuilderPattern\BuilderPattern.csproj", "{B2734D14-F38B-47B4-8DAD-E603BD516689}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderBattern.FluentBuilderInheritance", "BuilderBattern.FluentBuilderInheritance\BuilderBattern.FluentBuilderInheritance.csproj", "{5312317D-7CD9-49C8-BC5E-FA9246A5716F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern.FluentBuilderInheritance", "BuilderPattern.FluentBuilderInheritance\BuilderPattern.FluentBuilderInheritance.csproj", "{5312317D-7CD9-49C8-BC5E-FA9246A5716F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
