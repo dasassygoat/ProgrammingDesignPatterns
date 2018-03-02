@@ -8,4 +8,4 @@ Code from Udemy course on Design Patterns.
 * Interface Segregation Principle (InterfaceSegreation)
 * Dependency Inversion Principle (DependencyInversionPrinciple)
 * Builder Pattern (BuilderPattern)
-  * Fluent builder using SELF (BuilderPattern.FluentBuilderInheritance)
+  * Fluent builder using SELF (BuilderBattern.FluentBuilderInheritance) - Need to figure out how to rename project in Rider. Its a "pattern" not a "battern"
