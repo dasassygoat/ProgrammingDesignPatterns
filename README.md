@@ -7,3 +7,5 @@ Code from Udemy course on Design Patterns.
 * Liskov Substitution Principle (Liskov)
 * Interface Segregation Principle (InterfaceSegreation)
 * Dependency Inversion Principle (DependencyInversionPrinciple)
+* Builder Pattern (BuilderPattern)
+  * Fluent builder using SELF (BuilderPattern.FluentBuilderInheritance)
