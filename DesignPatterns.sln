@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "BuilderPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern.FluentBuilderInheritance", "BuilderPattern.FluentBuilderInheritance\BuilderPattern.FluentBuilderInheritance.csproj", "{5312317D-7CD9-49C8-BC5E-FA9246A5716F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacetedBuilder", "FacetedBuilder\FacetedBuilder.csproj", "{814F6F36-DD5E-492F-883C-DA59F3CE5317}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderExerciseOne", "BuilderExerciseOne\BuilderExerciseOne.csproj", "{710C0417-B91E-49EB-8CB4-7AB10EF2A8B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{5312317D-7CD9-49C8-BC5E-FA9246A5716F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5312317D-7CD9-49C8-BC5E-FA9246A5716F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5312317D-7CD9-49C8-BC5E-FA9246A5716F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{814F6F36-DD5E-492F-883C-DA59F3CE5317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814F6F36-DD5E-492F-883C-DA59F3CE5317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814F6F36-DD5E-492F-883C-DA59F3CE5317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814F6F36-DD5E-492F-883C-DA59F3CE5317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{710C0417-B91E-49EB-8CB4-7AB10EF2A8B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{710C0417-B91E-49EB-8CB4-7AB10EF2A8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{710C0417-B91E-49EB-8CB4-7AB10EF2A8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{710C0417-B91E-49EB-8CB4-7AB10EF2A8B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
