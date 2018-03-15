@@ -17,7 +17,7 @@ namespace Factories
         }
 
         public override string ToString()
-        {
+        { 
             return $"{nameof(x)}: {x}, {nameof(y)}: {y}";
         }
         
