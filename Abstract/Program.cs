@@ -105,7 +105,25 @@ namespace Abstract
                 WriteLine($"{index}: {tuple.Item1}");
             }
 
-            return null;
+            while (true)
+            {
+                string s;
+                if ((s = ReadLine()) != null
+                    && int.TryParse(s, out int i) //c# 7
+                    && i >= 0
+                    && i < factories.Count)
+                {
+                    Write("Specify amount: ");
+                    s = ReadLine();
+                    if (s != null
+                        && int.TryParse(s, out int amount)
+                        && amount > 0)
+                    {
+                        return factories[i].Item2.Prepare(amount);
+                    }
+                }
+                WriteLine("Incorrect input, try again");
+            }
         }
     }
     
@@ -120,6 +138,7 @@ namespace Abstract
             
             var machine = new HotDrinkMachine();
             var drink = machine.MakeDrink();
+            drink.Consume();
         }
     }
 }
