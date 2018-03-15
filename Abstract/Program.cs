@@ -50,6 +50,10 @@ namespace Abstract
 
     public class HotDrinkMachine
     {
+        /* This chunk violates the open closed principle because to add additional drinks
+             you would have to add to the AvailableDrink enum
+        */
+        /*
         public enum AvailableDrink
         {
             Tea,Coffee
@@ -73,15 +77,49 @@ namespace Abstract
         {
             return factories[drink].Prepare(amount);
         }
+        */
+
+        private List<Tuple<string,IHotDrinkFactory>> factories =
+            new List<Tuple<string, IHotDrinkFactory>>();
+        
+        public HotDrinkMachine()
+        {
+            foreach (var t in typeof(HotDrinkMachine).Assembly.GetTypes())
+            {
+                if (typeof(IHotDrinkFactory).IsAssignableFrom(t) && !t.IsInterface)
+                {
+                   factories.Add(Tuple.Create(
+                       t.Name.Replace("Factory",String.Empty),
+                       (IHotDrinkFactory)Activator.CreateInstance(t)
+                       )); 
+                }
+            }
+        }
+
+        public IHotDrink MakeDrink()
+        {
+            WriteLine("Available Drinks:");
+            for (var index = 0; index < factories.Count; index++)
+            {
+                var tuple = factories[index];
+                WriteLine($"{index}: {tuple.Item1}");
+            }
+
+            return null;
+        }
     }
     
     class Program
     {
         static void Main(string[] args)
         {
-            HotDrinkMachine hdm = new HotDrinkMachine();
-            var drink = hdm.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 10);
-            drink.Consume();
+            //this was for the first way
+//            HotDrinkMachine hdm = new HotDrinkMachine();
+//            var drink = hdm.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 10);
+//            drink.Consume();
+            
+            var machine = new HotDrinkMachine();
+            var drink = machine.MakeDrink();
         }
     }
 }
