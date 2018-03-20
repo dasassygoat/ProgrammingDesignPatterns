@@ -3,8 +3,12 @@ using static System.Console;
 
 namespace Prototype
 {
+    public interface IPrototype<T>
+    {
+        T DeepCopy();
+    }
 
-    public class Person 
+    public class Person : IPrototype<Person>
     {
         public string[] Names;
         public Address Address;
@@ -21,6 +25,11 @@ namespace Prototype
             Address = new Address(other.Address);
         }
 
+        public Person DeepCopy()
+        {
+            return new Person(Names, Address.DeepCopy());
+        }
+
         public override string ToString()
         {
             return $"{nameof(Names)}: {string.Join(" ",Names)}, {nameof(Address)}: {Address}";
@@ -29,7 +38,7 @@ namespace Prototype
         
     }
 
-    public class Address 
+    public class Address : IPrototype<Address>
     {
         public string StreetName;
         public int HouseNumber;
@@ -44,6 +53,11 @@ namespace Prototype
         {
             StreetName = other.StreetName;
             HouseNumber = other.HouseNumber;
+        }
+
+        public Address DeepCopy()
+        {
+            return new Address(StreetName, HouseNumber);
         }
 
         public override string ToString()
@@ -61,7 +75,7 @@ namespace Prototype
 
             //using the clone this way dosent accomplish anything because the change
             //for Janes house number changes johns as well
-            var jane = new Person(john);
+            var jane = john.DeepCopy();
             jane.Address.HouseNumber = 321;
             
             WriteLine(john);
