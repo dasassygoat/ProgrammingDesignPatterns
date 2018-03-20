@@ -1,14 +1,27 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using static System.Console;
 
 namespace Prototype
 {
-    public interface IPrototype<T>
+    public static class ExtensionMethods
     {
-        T DeepCopy();
-    }
+        public static T DeepCopy<T>(this T self)
+        {
+            var stream = new MemoryStream();
+            var formatter = new BinaryFormatter();
+            
+            formatter.Serialize(stream, self);
 
-    public class Person : IPrototype<Person>
+            stream.Seek(0, SeekOrigin.Begin);
+            object copy = formatter.Deserialize(stream);
+            stream.Close();
+            return (T) copy;
+        }
+    }
+    [Serializable]
+    public class Person 
     {
         public string[] Names;
         public Address Address;
@@ -25,10 +38,6 @@ namespace Prototype
             Address = new Address(other.Address);
         }
 
-        public Person DeepCopy()
-        {
-            return new Person(Names, Address.DeepCopy());
-        }
 
         public override string ToString()
         {
@@ -37,8 +46,8 @@ namespace Prototype
 
         
     }
-
-    public class Address : IPrototype<Address>
+    [Serializable]
+    public class Address 
     {
         public string StreetName;
         public int HouseNumber;
@@ -55,10 +64,6 @@ namespace Prototype
             HouseNumber = other.HouseNumber;
         }
 
-        public Address DeepCopy()
-        {
-            return new Address(StreetName, HouseNumber);
-        }
 
         public override string ToString()
         {
@@ -76,6 +81,7 @@ namespace Prototype
             //using the clone this way dosent accomplish anything because the change
             //for Janes house number changes johns as well
             var jane = john.DeepCopy();
+            jane.Names[0] = "Jane";
             jane.Address.HouseNumber = 321;
             
             WriteLine(john);
