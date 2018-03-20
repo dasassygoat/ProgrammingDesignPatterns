@@ -15,5 +15,6 @@ Code from Udemy course on Design Patterns.
   * Abstract Factory (Abstract)
   * Exercise One (FactoryExerciseOne)
 * Prototype (Prototype)
+  * Copy Constructor (Prototype)
 
 

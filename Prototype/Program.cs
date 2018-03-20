@@ -4,7 +4,7 @@ using static System.Console;
 namespace Prototype
 {
 
-    public class Person : ICloneable
+    public class Person 
     {
         public string[] Names;
         public Address Address;
@@ -15,18 +15,21 @@ namespace Prototype
             Address = address;
         }
 
+        public Person(Person other)
+        {
+            Names = other.Names;
+            Address = new Address(other.Address);
+        }
+
         public override string ToString()
         {
             return $"{nameof(Names)}: {string.Join(" ",Names)}, {nameof(Address)}: {Address}";
         }
 
-        public object Clone()
-        {
-            return new Person(Names,(Address)Address.Clone());
-        }
+        
     }
 
-    public class Address : ICloneable
+    public class Address 
     {
         public string StreetName;
         public int HouseNumber;
@@ -37,15 +40,17 @@ namespace Prototype
             HouseNumber = houseNumber;
         }
 
+        public Address(Address other)
+        {
+            StreetName = other.StreetName;
+            HouseNumber = other.HouseNumber;
+        }
+
         public override string ToString()
         {
             return $"{nameof(StreetName)}: {StreetName}, {nameof(HouseNumber)}: {HouseNumber}";
         }
 
-        public object Clone()
-        {
-            return new Address(StreetName, HouseNumber);
-        }
     }
 
     class Program
@@ -56,7 +61,7 @@ namespace Prototype
 
             //using the clone this way dosent accomplish anything because the change
             //for Janes house number changes johns as well
-            var jane = (Person) john.Clone();
+            var jane = new Person(john);
             jane.Address.HouseNumber = 321;
             
             WriteLine(john);
