@@ -16,5 +16,6 @@ Code from Udemy course on Design Patterns.
   * Exercise One (FactoryExerciseOne)
 * Prototype (Prototype)
   * Copy Constructor (Prototype)
+  * Exercise One (PrototypeExerciseThree)
 
 
